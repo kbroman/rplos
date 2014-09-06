@@ -1,8 +1,8 @@
 PASSWORD ?= $(shell bash -c 'read -s -p "Your PLOS API key: " pwd; echo $$pwd')
 
-all: vignettes move rmd2md cleanup
+all: thevignettes move rmd2md cleanup
 
-vignettes:
+thevignettes:
 		cd inst/vign;\
 		Rscript --vanilla -e 'library(knitr); options(PlosApiKey = "$(PASSWORD)"); knit("rplos_vignette.Rmd")'
 
